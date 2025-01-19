@@ -46,12 +46,16 @@ local function todo(opts)
         table.insert(hl, { { 1, #icon + 1 }, "TodoFg" .. kw })
         text = vim.trim(text:sub(start))
 
+        -- table.insert(hl, {
+        --   { #display, #display + finish - start + 2 },
+        --   "TodoBg" .. kw,
+        -- })
+        -- table.insert(hl, {
+        --   { #display + finish - start + 1, #display + finish + 1 + #text },
+        --   "TodoFg" .. kw,
+        -- })
         table.insert(hl, {
           { #display, #display + finish - start + 2 },
-          "TodoBg" .. kw,
-        })
-        table.insert(hl, {
-          { #display + finish - start + 1, #display + finish + 1 + #text },
           "TodoFg" .. kw,
         })
         display = display .. " " .. text
