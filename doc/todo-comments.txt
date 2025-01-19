@@ -1,14 +1,15 @@
-*todo-comments.txt*        For NVIM v0.5.0        Last change: 2022 October 26
+*todo-comments.txt*        For NVIM v0.8.0        Last change: 2025 January 19
 
 ==============================================================================
 Table of Contents                            *todo-comments-table-of-contents*
 
 1. ✅ Todo Comments                         |todo-comments-✅-todo-comments|
-  - ✨ Features                                  |todo-comments-✨-features|
-  - ⚡️ Requirements                    |todo-comments-⚡️-requirements|
-  - 📦 Installation                        |todo-comments-📦-installation|
-  - ⚙️ Configuration                  |todo-comments-⚙️-configuration|
-  - 🚀 Usage                                      |todo-comments-🚀-usage|
+  - ✨ Features                |todo-comments-✅-todo-comments-✨-features|
+  - ⚡️ Requirements  |todo-comments-✅-todo-comments-⚡️-requirements|
+  - 📦 Installation      |todo-comments-✅-todo-comments-📦-installation|
+  - ⚙️ Configuration|todo-comments-✅-todo-comments-⚙️-configuration|
+  - 🚀 Usage                    |todo-comments-✅-todo-comments-🚀-usage|
+2. Links                                                 |todo-comments-links|
 
 ==============================================================================
 1. ✅ Todo Comments                         *todo-comments-✅-todo-comments*
@@ -16,13 +17,8 @@ Table of Contents                            *todo-comments-table-of-contents*
 **todo-comments** is a lua plugin for Neovim 0.5 to highlight and search for
 todo comments like `TODO`, `HACK`, `BUG` in your code base.
 
-<div class="figure">
-<img src="https://user-images.githubusercontent.com/292349/118135272-ad21e980-b3b7-11eb-881c-e45a4a3d6192.png" title="fig:"/>
-<p class="caption">image</p>
-</div>
 
-✨ FEATURES                                      *todo-comments-✨-features*
-
+✨ FEATURES                    *todo-comments-✅-todo-comments-✨-features*
 
 - **highlight** your todo comments in different styles
 - optionally only highlights todos in comments using **TreeSitter**
@@ -32,8 +28,7 @@ todo comments like `TODO`, `HACK`, `BUG` in your code base.
 - search todos with Telescope <https://github.com/nvim-telescope/telescope.nvim>
 
 
-⚡️ REQUIREMENTS                        *todo-comments-⚡️-requirements*
-
+⚡️ REQUIREMENTS      *todo-comments-✅-todo-comments-⚡️-requirements*
 
 - Neovim >= 0.5.0
 - a patched font <https://www.nerdfonts.com/> for the icons, or change them to simple ASCII characters
@@ -43,13 +38,14 @@ todo comments like `TODO`, `HACK`, `BUG` in your code base.
     - Telescope <https://github.com/nvim-telescope/telescope.nvim>
 
 
-📦 INSTALLATION                            *todo-comments-📦-installation*
+📦 INSTALLATION          *todo-comments-✅-todo-comments-📦-installation*
 
 Install the plugin with your preferred package manager:
 
-PACKER <HTTPS://GITHUB.COM/WBTHOMASON/PACKER.NVIM> ~
 
->
+PACKER ~
+
+>lua
     -- Lua
     use {
       "folke/todo-comments.nvim",
@@ -65,9 +61,9 @@ PACKER <HTTPS://GITHUB.COM/WBTHOMASON/PACKER.NVIM> ~
 <
 
 
-VIM-PLUG <HTTPS://GITHUB.COM/JUNEGUNN/VIM-PLUG> ~
+VIM-PLUG ~
 
->
+>vim
     " Vim Script
     Plug 'nvim-lua/plenary.nvim'
     Plug 'folke/todo-comments.nvim'
@@ -82,11 +78,11 @@ VIM-PLUG <HTTPS://GITHUB.COM/JUNEGUNN/VIM-PLUG> ~
 <
 
 
-⚙️ CONFIGURATION                      *todo-comments-⚙️-configuration*
+⚙️ CONFIGURATION    *todo-comments-✅-todo-comments-⚙️-configuration*
 
 Todo comes with the following defaults:
 
->
+>lua
     {
       signs = true, -- show icons in the signs column
       sign_priority = 8, -- sign priority
@@ -155,7 +151,7 @@ JUMPING ~
 
 Two methods are available to jump to the next/previous todo comment.
 
->
+>lua
     vim.keymap.set("n", "]t", function()
       require("todo-comments").jump_next()
     end, { desc = "Next todo comment" })
@@ -172,75 +168,60 @@ Two methods are available to jump to the next/previous todo comment.
 <
 
 
-🚀 USAGE                                          *todo-comments-🚀-usage*
+🚀 USAGE                        *todo-comments-✅-todo-comments-🚀-usage*
 
 **Todo** matches on any text that starts with one of your defined keywords (or
 alt) followed by a colon:
-
 
 - TODO: do something
 - FIX: this should be fixed
 - HACK: weird code warning
 
-
 Todos are highlighted in all regular files.
 
 Each of the commands below accept the following arguments:
 
-
 - `cwd` - Specify the directory to search for comments, like:
 
-
->
+>vim
     :TodoTrouble cwd=~/projects/foobar
 <
 
-
-
 - `keywords` - Comma separated list of keywords to filter results by. Keywords are case-sensitive.
 
-
->
+>vim
     :TodoTelescope keywords=TODO,FIX
 <
 
 
-🔎 `:TODOQUICKFIX` ~
+🔎 :TODOQUICKFIX ~
 
 This uses the quickfix list to show all todos in your project.
 
-<div class="figure">
-<img src="https://user-images.githubusercontent.com/292349/118135332-bf9c2300-b3b7-11eb-9a40-1307feb27c44.png" title="fig:"/>
-<p class="caption">image</p>
-</div>
 
-🔎 `:TODOLOCLIST` ~
+🔎 :TODOLOCLIST ~
 
 This uses the location list to show all todos in your project.
 
-<div class="figure">
-<img src="https://user-images.githubusercontent.com/292349/118135332-bf9c2300-b3b7-11eb-9a40-1307feb27c44.png" title="fig:"/>
-<p class="caption">image</p>
-</div>
 
-🚦 `:TODOTROUBLE` ~
+🚦 :TODOTROUBLE ~
 
 List all project todos in trouble <https://github.com/folke/trouble.nvim>
 
 
   See screenshot at the top
 
-
-🔭 `:TODOTELESCOPE` ~
+🔭 :TODOTELESCOPE ~
 
 Search through all project todos with Telescope
 
-<div class="figure">
-<img src="https://user-images.githubusercontent.com/292349/118135371-ccb91200-b3b7-11eb-9002-66af3b683cf0.png" title="fig:"/>
-<p class="caption">image</p>
-</div>
+==============================================================================
+2. Links                                                 *todo-comments-links*
 
-
+1. *image*: https://user-images.githubusercontent.com/292349/118135272-ad21e980-b3b7-11eb-881c-e45a4a3d6192.png
+2. *image*: https://user-images.githubusercontent.com/292349/118135332-bf9c2300-b3b7-11eb-9a40-1307feb27c44.png
+3. *image*: https://user-images.githubusercontent.com/292349/118135332-bf9c2300-b3b7-11eb-9a40-1307feb27c44.png
+4. *image*: https://user-images.githubusercontent.com/292349/118135371-ccb91200-b3b7-11eb-9002-66af3b683cf0.png
 
 Generated by panvimdoc <https://github.com/kdheepak/panvimdoc>
 
